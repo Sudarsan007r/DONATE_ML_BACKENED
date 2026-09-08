@@ -5,9 +5,11 @@ const cors = require("cors");
 
 const app = express();
 
+const allowedOrigins = (process.env.ALLOWED_ORIGINS || "http://localhost:3000").split(",");
+
 app.use(
   cors({
-    origin: true,
+    origin: allowedOrigins,
     credentials: true,
   })
 );
